@@ -1,7 +1,7 @@
-# DevPilot 🚀
-### AI-Powered GitHub Code Assistant with RAG & Google Gemini
+# RepoLens 🔍
+### AI Codebase Intelligence Platform
 
-DevPilot is an intelligent, full-stack developer assistant that enables conversational exploration of GitHub repositories. By combining **Spring Boot 4.1**, **Next.js 16**, **PostgreSQL with pgvector**, and **Google Gemini** (via Spring AI's OpenAI-compatible client), DevPilot parses, indexes, and embeds codebases to provide accurate, context-aware answers with real-time streaming.
+RepoLens is an intelligent, full-stack developer assistant that enables conversational exploration of GitHub repositories. By combining **Spring Boot 4.1**, **Next.js 16**, **PostgreSQL with pgvector**, and **Google Gemini** (via Spring AI's OpenAI-compatible client), RepoLens parses, indexes, and embeds codebases to provide accurate, context-aware answers with real-time streaming.
 
 ---
 
@@ -24,7 +24,7 @@ DevPilot is an intelligent, full-stack developer assistant that enables conversa
                      |  (React 19, Tailwind v4, shadcn/ui)  |
                      +-------------------+-------------------+
                                          |
-                       HTTP / SSE Stream | Cookie: DEVPILOT_SESSION
+                       HTTP / SSE Stream | Cookie: REPOLENS_SESSION
                                          v
                      +---------------------------------------+
                      |         Spring Boot 4.1 API           |
@@ -69,7 +69,7 @@ DevPilot is an intelligent, full-stack developer assistant that enables conversa
 | **Frontend** | Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, TanStack Query v5 |
 | **AI / LLM** | Google Gemini (`gemini-2.0-flash` for chat, `text-embedding-004` for 768-dim embeddings) |
 | **Database** | PostgreSQL 16 with `pgvector` extension (HNSW index, Cosine distance) |
-| **Authentication** | GitHub OAuth2 (cookie-based session `DEVPILOT_SESSION`, encrypted tokens at rest) |
+| **Authentication** | GitHub OAuth2 (cookie-based session `REPOLENS_SESSION`, encrypted tokens at rest) |
 | **Containerization** | Docker, Docker Compose |
 
 ---
@@ -93,7 +93,7 @@ Ensure you have the following installed on your machine:
 1. Go to [GitHub Developer Settings > OAuth Apps](https://github.com/settings/developers).
 2. Click **New OAuth App**.
 3. Fill in:
-   - **Application name**: `DevPilot Local`
+   - **Application name**: `RepoLens Local`
    - **Homepage URL**: `http://localhost:3000`
    - **Authorization callback URL**: `http://localhost:8080/login/oauth2/code/github`
 4. Click **Register application**.
@@ -107,7 +107,7 @@ You can set these via environment variables or define them in your local `backen
 
 | Variable | Default Value | Description |
 | :--- | :--- | :--- |
-| `DB_URL` | `jdbc:postgresql://localhost:5433/devpilot` | PostgreSQL connection URL |
+| `DB_URL` | `jdbc:postgresql://localhost:5433/repolens` | PostgreSQL connection URL |
 | `DB_USERNAME` | `postgres` | Database username |
 | `DB_PASSWORD` | `postgres` | Database password |
 | `SPRING_AI_OPENAI_API_KEY` | *(Required)* | Your Google Gemini API Key |
@@ -115,10 +115,10 @@ You can set these via environment variables or define them in your local `backen
 | `GITHUB_CLIENT_SECRET` | *(Required)* | GitHub OAuth App Client Secret |
 | `FRONTEND_URL` | `http://localhost:3000` | Frontend application URL |
 | `CORS_ALLOWED_ORIGINS` | `http://localhost:3000` | Allowed CORS origins for API |
-| `TOKEN_ENCRYPTOR_PASSWORD`| `devpilot-local-encrypt-key-change-me` | AES key for encrypting GitHub tokens |
+| `TOKEN_ENCRYPTOR_PASSWORD`| `repolens-local-encrypt-key-change-me` | AES key for encrypting GitHub tokens |
 | `TOKEN_ENCRYPTOR_SALT` | `deadbeefcafebabe` | Salt for AES token encryption |
 
-> **Note on Gemini Integration**: DevPilot uses Spring AI's OpenAI-compatible client pointed to:
+> **Note on Gemini Integration**: RepoLens uses Spring AI's OpenAI-compatible client pointed to:
 > `https://generativelanguage.googleapis.com/v1beta/openai`
 > Supply your Gemini API key in `spring.ai.openai.api-key`.
 
@@ -128,8 +128,8 @@ You can set these via environment variables or define them in your local `backen
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/DigvijayNarayanPandey/SpringBoot-with-RAG-and-GenAI.git
-cd SpringBoot-with-RAG-and-GenAI
+git clone https://github.com/tanujkapoor-cmd/RepoLens.git
+cd RepoLens
 ```
 
 ### Step 2: Start PostgreSQL with pgvector
@@ -209,7 +209,7 @@ The client will be running at `http://localhost:3000`.
 ## 📂 Project Structure
 
 ```
-DevPilot/
+RepoLens/
 ├── backend/                        # Spring Boot 4.1 Backend
 │   ├── src/main/java/devPilot/backend/
 │   │   ├── config/                 # Security, AI, ThreadPool & Web configs

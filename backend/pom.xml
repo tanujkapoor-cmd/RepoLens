@@ -9,11 +9,11 @@
 		<version>4.1.0</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>devPilot</groupId>
+	<groupId>io.repolens</groupId>
 	<artifactId>backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name />
-	<description />
+	<name>RepoLens</name>
+	<description>AI Codebase Intelligence Platform</description>
 	<url />
 	<licenses>
 		<license />

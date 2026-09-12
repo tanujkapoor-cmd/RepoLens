@@ -2,15 +2,15 @@ import type { SVGProps } from "react";
 
 import { cn } from "@/lib/utils";
 
-type DevPilotIconProps = SVGProps<SVGSVGElement> & {
+type RepoLensIconProps = SVGProps<SVGSVGElement> & {
   variant?: "color" | "mono";
 };
 
-export function DevPilotIcon({
+export function RepoLensIcon({
   className,
   variant = "color",
   ...props
-}: DevPilotIconProps) {
+}: RepoLensIconProps) {
   const mono = variant === "mono";
 
   return (
@@ -53,7 +53,7 @@ export function DevPilotIcon({
   );
 }
 
-export function DevPilotLogo({
+export function RepoLensLogo({
   className,
   ...props
 }: SVGProps<SVGSVGElement>) {
